@@ -4,43 +4,55 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="css/newMonster.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="pt-5">
 
-<div class="container pt-2 pb-5 px-5 bg-warning">
-<div id="creation" class="">
-<div class="w-100 col-12 row"> 
-	<div class="h3 w-100 col-12 p-2 m-0">SearchBy:</div>
-
-<input class="searchBy col-2 btn-dark" type="button" name="spells" value="Spells">
-<input class="searchBy col-2 btn-dark" type="button" name="monsters" value="Monsters">
-<input class="searchBy col-2 btn-dark" type="button" name="documents" value="Documents">
-<input class="searchBy col-2 btn-dark" type="button" name="backgrounds" value="Backgrounds">
-<input class="searchBy col-2 btn-dark" type="button" name="planes" value="Planes">
-<input class="searchBy col-2 btn-dark" type="button" name="feats" value="Feats">
-<input class="searchBy col-2 btn-dark" type="button" name="conditions" value="Conditions">
-<input class="searchBy col-2 btn-dark" type="button" name="races" value="Races">
-<input class="searchBy col-2 btn-dark" type="button" name="classes" value="Classes">
-<input class="searchBy col-2 btn-dark" type="button" name="magicitems" value="Magic Items">
-<input class="searchBy col-2 btn-dark" type="button" name="weapons" value="Weapons">
-<input class="searchBy col-2 btn-dark" type="button" name="search" value="Search">
-<div class="col-12 ">
-<div class="h3"> search: </div>
-<div class="col-12 row">
-<input id="search" class="col-10" type="text" value="">
-<input id="searchBtn" class="col-2 btn-success" type="button" name="" value="go">
-</div>
-</div>
-</div> 
-
-
+<div id="navigation" class="container pt-2 pb-5 px-5 bg-warning">
+		<div id="creation" class="">
+		<div class="w-100 col-12 row"> 
+			<div class="h3 w-100 col-12 py-2 px-0 m-0">Select Criteria:</div>
+				<input class="searchBy col-2 btn-dark" type="button" name="spells/?search=" value="Spell">
+				<input class="searchBy col-2 btn-dark" type="button" name="monsters/?search=" value="Monster">
+				<input class="searchBy col-2 btn-dark" type="button" name="documents/?search=" value="Document">
+				<input class="searchBy col-2 btn-dark" type="button" name="backgrounds/?search=" value="Background">
+				<input class="searchBy col-2 btn-dark" type="button" name="planes/?search=" value="Plane">
+				<input class="searchBy col-2 btn-dark" type="button" name="feats/?search=" value="Feat">
+				<input class="searchBy col-2 btn-dark" type="button" name="conditions/?search=" value="Condition">
+				<input class="searchBy col-2 btn-dark" type="button" name="races/?search=" value="Race">
+				<input class="searchBy col-2 btn-dark" type="button" name="classes/?search=" value="Class">
+				<input class="searchBy col-2 btn-dark" type="button" name="magicitems/?search=" value="Magic Item">
+				<input class="searchBy col-2 btn-dark" type="button" name="weapons/?search=" value="Weapon">
+				<input class="searchBy col-2 btn-dark" type="button" name="search/?text=" value="Everything">
+				<div class="col-12 p-0 m-0 mt-3">
+					<div id="youAreSearching" class="h3">What are we looking for? </div>
+					<div class="col-12 row p-0 m-0">
+					<input id="search" class="col-10" type="text" value="">
+						<input id="searchBtn" class="col-2 btn-success" type="button" name="" value="go">
+					</div>
+				</div>
+	</div> 
 </div>
 
 </div>
 
-
+<div id="charLab" class="container p-0 bg-light">
+	<div class="w-100 row m-0">
+		<div id="myMonster" class="col-6 border py-5 px-0">
+			<div class="col-12 p-0">
+			<input id="" class="col-12 m-0" type="button" value="Monster Name" name="">	
+			<input id="" class="col-2 m-0" type="button" value="Size" name="">
+			<input id="" class="col-5 m-0" type="button" value="Type" name="">
+			<input id="" class="col-4 m-0" type="button" value="Alignment" name="">
+			</div>
+		</div>
+		<div id="myLab" class="col-6 border py-5 px-0">
+			
+		</div>
+	</div>
+</div>
 
 
 
