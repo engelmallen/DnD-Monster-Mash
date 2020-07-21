@@ -14,17 +14,17 @@
 		<div id="creation" class="">
 		<div class="w-100 col-12 row"> 
 			<div class="h3 w-100 col-12 py-2 px-0 m-0">Select Criteria:</div>
-				<input class="searchBy col-2 btn-dark" type="button" name="spells/?search=" value="Spell">
-				<input class="searchBy col-2 btn-dark" type="button" name="monsters/?search=" value="Monster">
-				<input class="searchBy col-2 btn-dark" type="button" name="documents/?search=" value="Document">
-				<input class="searchBy col-2 btn-dark" type="button" name="backgrounds/?search=" value="Background">
-				<input class="searchBy col-2 btn-dark" type="button" name="planes/?search=" value="Plane">
-				<input class="searchBy col-2 btn-dark" type="button" name="feats/?search=" value="Feat">
-				<input class="searchBy col-2 btn-dark" type="button" name="conditions/?search=" value="Condition">
-				<input class="searchBy col-2 btn-dark" type="button" name="races/?search=" value="Race">
-				<input class="searchBy col-2 btn-dark" type="button" name="classes/?search=" value="Class">
-				<input class="searchBy col-2 btn-dark" type="button" name="magicitems/?search=" value="Magic Item">
-				<input class="searchBy col-2 btn-dark" type="button" name="weapons/?search=" value="Weapon">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/spells/?search=" value="Spell">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/monsters/?search=" value="Monster">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/documents/?search=" value="Document">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/backgrounds/?search=" value="Background">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/planes/?search=" value="Plane">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/feats/?search=" value="Feat">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/conditions/?search=" value="Condition">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/races/?search=" value="Race">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/classes/?search=" value="Class">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/magicitems/?search=" value="Magic Item">
+				<input class="searchBy col-2 btn-dark" type="button" name="https://api.open5e.com/weapons/?search=" value="Weapon">
 				<input class="searchBy col-2 btn-dark" type="button" name="search/?text=" value="Everything">
 				<div class="col-12 p-0 m-0 mt-3">
 					<div id="youAreSearching" class="h3">What are we looking for? </div>
@@ -41,15 +41,49 @@
 <div id="charLab" class="container p-0 bg-light">
 	<div class="w-100 row m-0">
 		<div id="myMonster" class="col-6 border py-5 px-0">
-			<div class="col-12 p-0">
-			<input id="" class="col-12 m-0" type="button" value="Monster Name" name="">	
-			<input id="" class="col-2 m-0" type="button" value="Size" name="">
-			<input id="" class="col-5 m-0" type="button" value="Type" name="">
-			<input id="" class="col-4 m-0" type="button" value="Alignment" name="">
+			<div id="monsHeader" class="col-12 p-0">
+			<input id="" class="col-12 m-0" type="text" value="Monster Name" name="">	
+			<input id="" class="col-2 m-0" type="text" value="Size" name="">
+			<input id="" class="col-5 m-0" type="text" value="Type" name="">
+			<input id="" class="col-4 m-0" type="text" value="Alignment" name="">
 			</div>
+			<div id="monsLife">
+				<input id="monsAC" type="text" placeholder="Armor Class">
+				<input id="monsHP" type="text" placeholder="Hit Points">
+				<input id="monsSpeed" type="text" placeholder="Speed">
+			</div>
+			<div id="monsStats">
+			<input id="monsDamRes" type="text" placeholder="Damage Resistantes">
+			<input id="monsDamImn" type="text" placeholder="Damage Inmunities">
+			<input id="monsConImn" type="text" placeholder="Condition Inmunities">
+			<input id="monsSenses" type="text" placeholder="Senses">
+			<input id="monsLangs" type="text" placeholder="Languages">
+			<input id="monsCR" type="text" placeholder="Challenge">					
+			</div>
+			<div id="monsAtributes">
+			<input id="resSkills" type="button" value="Reset">
+
+			</div>
+			
+			<div id="monsSkills"><h6>Habilities:</h6>
+				
+			</div>
+
+			<div id="monsActions"><h6>Actions:</h6>
+				
+			</div>			
+
+			<div id="monsLegActions"><h6>LegendaryActions:</h6>
+				
+			</div>
+
 		</div>
 		<div id="myLab" class="col-6 border py-5 px-0">
-			
+			<div id="myLabBtns" class="">
+				<input id="labBtnPrv" class="searchBy" type="button" value="Preview">
+				<!-- <input id="" type="button" value="last"> -->
+				<input id="labBtnNxt" class="searchBy" name="" type="button" value="Next">
+			</div>
 		</div>
 	</div>
 </div>
