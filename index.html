@@ -4,10 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="index.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body class="bg-dark">
+<body>
 
 <div class="container">
             <div id="input-content">
@@ -15,14 +16,30 @@
                 <label for ="inputCR">Challenge Rating</label>
                 <input type="text" id='inputCR' name="" class="input">
                 <label for ="inputType">Type</label>
-                <input type="text" id='inputType' name="" class="input">
+                <select id ="inputType">
+                    <option value = "blank"></option>
+                    <option value ="aberration">Aberration</option>
+                    <option value ="beast">Beast</option>
+                    <option value= "celestial">Celestial</option>
+                    <option value= "construct">Construct</option>
+                    <option value= "dragon">Dragon</option>
+                    <option value= "Elemental">Elemental</option>
+                    <option value= "fey">Fey</option>
+                    <option value= "Fiend">Fiend</option>
+                    <option value= "giant">Giant</option>
+                    <option value= "humanoid">Humanoid</option>
+                    <option value= "monstrosity">Monstrosity</option>
+                    <option value= "ooze">Ooze</option>
+                    <option value= "plant">Plant</option>
+                    <option value= "undead">Undead</option>
+                </select>
                 <input type="submit" id='submit' name="">
                 <div class="info">Search by Challenge Rating or Type.</div>
             </center>
             <div id ="monsters">
             </div>
         </div>
-	<div class="row">
+<!--	<div class="row">
 		<div class="col-12 row">
 			<div class="col-5 row">
 				<input type="text" class=" col-12">
@@ -56,7 +73,7 @@
 
 			</div>
 		</div>
-	</div>
+	</div>-->
 </div>
 
 

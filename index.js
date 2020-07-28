@@ -1,14 +1,46 @@
 $(document).ready(function() {
 
+    let monsterType =[
+        "Aberration",
+        "Beast",
+        "Celestial",
+        "Construct",
+        "Dragon",
+        "Elemental",
+        "Fey",
+        "Fiend",
+        "Giant",
+        "Humanoid",
+        "Monstrosity",
+        "Ooze",
+        "Plant",
+        "Undead",
+    ]
 
 let submit = document.getElementById("submit")
 
 submit.addEventListener ("click", monsterSearch)
+
 function monsterSearch (){
+    let searchTerm=""
+        if(inputCR.value ==="" & inputType.value !==""){
+            console.log("No CR Value given but the following type was selected" + inputType.value)
+                searchTerm = "type=" + inputType.value
+            console.log(searchTerm)
+        }
+        else if(inputCR.value !="" & inputType.value == "blank"){ 
+            console.log(" No type was selected but the CR Value= " + inputCR.value)
+            searchTerm = "challenge_rating=" + inputCR.value
+            console.log(searchTerm)
+            }
+        else{ console.log("No Value was provided")
+
+            }
+
     $.ajax({
 	       async: true,
 	       crossDomain: true,
-	       url: "https://api.open5e.com/monsters/?challenge_rating=" + inputCR.value,
+	       url: "https://api.open5e.com/monsters/?" + searchTerm,
 	       method: "GET",
             success: function(monsterData) {
             console.log(monsterData)
@@ -29,15 +61,33 @@ function displayMonsterData (monsterData) {
 //build monster entry -- Entry displays the monster stats
     for (let j=0; j<monsterList.length; j++){
         
+        let monsterName = document.createElement('button')
+            monsterName.innerHTML = monsterList[j].name
+            monsterContainer.appendChild(monsterName)
+            monsterName.setAttribute("class", "monster-name")
+        
         let monsterEntry=document.createElement('div')
             monsterContainer.appendChild(monsterEntry)
             monsterEntry.setAttribute("class","monster-entry")
-        
-        let monsterName = document.createElement('h2')
-            monsterName.innerHTML = monsterList[j].name
-            monsterEntry.insertAdjacentElement("afterbegin", monsterName)
-            monsterName.setAttribute("class", "monster-name")
-        
+
+//Monster Armor Class
+        let monsterAC=document.createElement('div')
+            monsterAC.innerHTML= "Armor Class: " + monsterList[j].armor_class
+            monsterEntry.insertAdjacentElement("beforeend", monsterAC)
+//Monster Hit Points
+        let monsterHP=document.createElement('div')
+            monsterHP.innerHTML= "Hit Points: " + monsterList[j].hit_points
+            monsterEntry.insertAdjacentElement("beforeend", monsterHP)
+// Monster Speed
+         let monsterSpeed=document.createElement('div')
+             monsterSpeed.innerHTML= "Speed:"
+            Object.entries(monsterList[j].speed).forEach(([key, value]) => monsterSpeed.innerHTML += (` ${key}:${value}`));
+            monsterEntry.insertAdjacentElement("beforeend", monsterSpeed)
+// Monster Saves
+         let monsterSaves=document.createElement('div')
+            monsterHP.innerHTML= "Save: Strengeth_save look for other ones"
+            monsterEntry.insertAdjacentElement("beforeend", monsterSaves)
+//Monster Stats
         let monsterStats =document.createElement('ul')
             monsterEntry.insertAdjacentElement("beforeend", monsterStats)
             monsterStats.setAttribute("class", "monster-stats")
@@ -64,9 +114,50 @@ function displayMonsterData (monsterData) {
         let monsterChar =document.createElement('li')
             monsterChar.innerHTML= "CHA: " + monsterList[j].charisma
             monsterStats.insertAdjacentElement("beforeend", monsterChar)
+//Monster Actions
+        let actions =[]
+        let actionDes=
 
+        console.log(Object.values(monsterList[j].actions))
+            for(let k=0; k<monsterList[j].actions.length; k++){
+                //if (Object.keys(monsterList[j].actions[k]) === "des"){
+                    actions.push(Object.values(monsterList[j].actions[k]))
+                    this ["actionDes" + k] = Object.values(monsterList[j].actions[k])
+                    console.log(this.ActionDes[k])
+               // }
+            
+                console.log("Pushed Array" + actions)
+                console.log(Object.keys(monsterList[j].actions[k]))
+            }
+        
+
+
+//Monster Skills
+        let monsterSkills=document.createElement('div')
+             monsterSkills.innerHTML= "Skills:"
+            Object.entries(monsterList[j].skills).forEach(([key, value]) => monsterSkills.innerHTML += (` ${key}:${value}`));
+            monsterEntry.insertAdjacentElement("beforeend", monsterSkills)
+        
+        
+        
+        
     }
+// Logic for the Monster Card drop downs
     
+    let  acc = document.getElementsByClassName("monster-name ");
+    
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
 }
     
     
