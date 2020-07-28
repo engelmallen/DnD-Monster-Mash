@@ -5,6 +5,7 @@ let youAreSearching = document.getElementById('youAreSearching')
 let myLab = document.getElementById('myLab')
 let labBtnNxt = document.getElementById('labBtnNxt')
 let labBtnPrv = document.getElementById('labBtnPrv')
+let monsOptions = document.getElementById('monsOptions')
 
 function status() {
     console.log(getCriteriaBtn)
@@ -24,6 +25,8 @@ function status() {
 /*variables:*/
 let getCriteriaBtn = ""
 let everythingList = []
+let nowPresenting = ""
+
 
 
 let spellList = []
@@ -38,101 +41,253 @@ let classList = []
 let magicItemList = []
 let weaponList = []
 
+function whatPresenting() {
 
+        monsOptions.innerHTML = ""    
+
+            for (let i = 0; i < everythingList[0].length; i++) {
+                if (nowPresenting === "Monsters") {
+                    console.log("creating btn")
+                    // monsOptions.innerHTML = ""
+                    
+                    getCriteriaCont = document.createElement('div')
+                    getCriteriaBtn = document.createElement('input')
+                    
+                    getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                   
+                    getCriteriaBtn.type = "button"
+                    getCriteriaBtn.value = everythingList[0][i].name
+                    getCriteriaCont.appendChild(getCriteriaBtn)
+                    monsOptions.appendChild(getCriteriaCont)
+                    
+                    var infoBtnAction = document.getElementsByClassName('infoBtnAction')
+                    for (let z = 0; z < infoBtnAction.length; z++) {
+                       infoBtnAction[z].addEventListener('click', function(e) {
+                        console.log("test done")
+
+                            for (let x = 0; x < everythingList[0].length; x++) {
+                                    let createInfoTitle =document.createElement('h6')
+                                    let createInfoElement =document.createElement('h4')
+                                    createInfoTitle.innerHTML = everythingList[0][x].keys
+                                    createInfoElement.innerHTML = everythingList[0][x].values
+                                    e.target.insertAdjacentElement("afterend", createInfoTitle)
+                                    e.target.insertAdjacentElement("afterend", createInfoElement)
+                            }
+                     })                        
+                    }                    
+                   console.log("btn created")
+                }        
+           }
+
+
+            for (let i = 0; i < everythingList[0].length; i++) {
+                if (nowPresenting === "Race") {
+                    console.log("creating btn")
+                    // monsOptions.innerHTML = ""
+                    
+                    getCriteriaCont = document.createElement('div')
+                    getCriteriaBtn = document.createElement('input')
+                    
+                    getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                   
+                    getCriteriaBtn.type = "button"
+                    getCriteriaBtn.value = everythingList[0][i].name
+                    getCriteriaCont.appendChild(getCriteriaBtn)
+                    monsOptions.appendChild(getCriteriaCont)
+                    
+                    var infoBtnAction = document.getElementsByClassName('infoBtnAction')
+                    for (let z = 0; z < infoBtnAction.length; z++) {
+                       infoBtnAction[z].addEventListener('click', function(e) {
+                        console.log("test done")
+
+                            for (let x = 0; x < everythingList[0].length; x++) {
+                                    let createInfoTitle =document.createElement('h6')
+                                    let createInfoElement =document.createElement('h4')
+                                    createInfoTitle.innerHTML = everythingList[0][x].keys
+                                    createInfoElement.innerHTML = everythingList[0][x].values
+                                    e.target.insertAdjacentElement("afterend", createInfoTitle)
+                                    e.target.insertAdjacentElement("afterend", createInfoElement)
+                            }
+
+                     })                        
+                    }                    
+
+
+ 
+                    console.log("btn created")
+
+                    }        
+
+
+
+
+                }
+
+            for (let i = 0; i < everythingList[0].length; i++) {
+                if (nowPresenting === "Abilities") {
+                    console.log("creating Abilities")
+                    // monsOptions.innerHTML = ""
+                    getCriteriaCont = document.createElement('div')
+                    getCriteriaBtn = document.createElement('input')
+                    
+                    getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                   
+                    getCriteriaBtn.type = "button"
+
+                        for (let z = 0; z < everythingList[0][i].actions.length; z++) {
+                           console.log(everythingList[0][i].actions[z].name)
+                           getCriteriaBtn.value = everythingList[0][i].actions[z].name
+                            getCriteriaBtn.addEventListener('click', function(e){
+                                createSubElement = document.createElement('div')
+                                createSubElement.innerHTML = everythingList[0][i].actions[z].desc
+                                e.target.insertAdjacentElement("afterend", createSubElement)
+                            })
+                           
+                        }
+
+                    
+                    console.log(everythingList[0][i].name)
+                    getCriteriaCont.appendChild(getCriteriaBtn)
+                    monsOptions.appendChild(getCriteriaCont)
+                    
+                    var infoBtnAction = document.getElementsByClassName('infoBtnAction')
+                    // for (let z = 0; z < infoBtnAction.length; z++) {
+                    //    infoBtnAction[z].addEventListener('click', function(e) {
+                    //     console.log("test done")
+
+                    //         for (let x = 0; x < everythingList[0].length; x++) {
+                    //                 let createInfoTitle =document.createElement('h6')
+                    //                 let createInfoElement =document.createElement('h4')
+                    //                 createInfoTitle.innerHTML = everythingList[0][x].keys
+                    //                 createInfoElement.innerHTML = everythingList[0][x].values
+                    //                 e.target.insertAdjacentElement("afterend", createInfoTitle)
+                    //                 e.target.insertAdjacentElement("afterend", createInfoElement)
+                    //         }
+
+                    //  })                        
+                    // }                    
+
+
+ 
+                    console.log("btn created")
+
+                    }        
+
+
+
+
+                }
+
+ 
+
+           //  for (let i = 0; i < everythingList[0].length; i++) {
+           //      if (nowPresenting === "Spell") {
+           //          console.log("creating btn")
+                    
+                    
+           //          getCriteriaCont = document.createElement('div')
+           //          getCriteriaBtn = document.createElement('input')
+                    
+           //          getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                   
+           //          getCriteriaBtn.type = "button"
+           //          getCriteriaBtn.value = everythingList[0][i].name
+           //          getCriteriaCont.appendChild(getCriteriaBtn)
+           //          monsOptions.appendChild(getCriteriaCont)
+                    
+           //          var infoBtnAction = document.getElementsByClassName('infoBtnAction')
+           //          for (let z = 0; z < infoBtnAction.length; z++) {
+           //             infoBtnAction[z].addEventListener('click', function(e) {
+           //              console.log("test done")
+
+           //                  for (let i = 0; i < everythingList[0].length; i++) {
+           //                          console.log(everythingList[0][i].name)
+           //                          if (everythingList[0][i].name === e.target.name) {
+           //                              let spellType = document.createElement('h6')
+           //                              // spellType.value = Spell Type
+
+                                    
+                                    
+                                    
+           //                          // let createInfoElement = document.createElement('h4')
+           //                          // spellType.innerHTML = everythingList[0][i].keys
+           //                          // createInfoElement.innerHTML = everythingList[0][i].values
+                                    
+           //                          // e.target.insertAdjacentElement("afterend", spellType)
+           //                          // e.target.insertAdjacentElement("afterend", createInfoElement)
+           //                          // console.log("btn created")
+           //                  }
+           //              }
+           //           })                        
+           //          }                    
+                   
+           //      }        
+           // }
+
+
+
+            }
+
+// function infoPresenting() {
+//    createSubElement = document.createElement("div")
+//    for (var i = Things.length - 1; i >= 0; i--) {
+//        Things[i]
+//    }
+
+// }
 
 
 // let curInfo = []
 function getCriteria(){
     let searchBy = document.getElementsByClassName('searchBy')
-    for (var i = 0; i < searchBy.length; i++) {
+    for (let i = 0; i < searchBy.length; i++) {
         searchBy[i].addEventListener('click', function (e) {
         getInfo(e.target.name)
+        nowPresenting = e.target.value
+        
+        console.log(nowPresenting)
         console.log("getCriteria Working")
         // getCriteriaBtn =   
         })
-    }
+    }/*whatPresenting()*/
 }getCriteria()
 
 
-function getInfo(criteria) {
-     // let infoTypes = [  "spells",
-    //                     "monsters", 
-    //                     "documents", 
-    //                     "backgrounds",
-    //                     "planes",
-    //                     "feats",
-    //                     "conditions",
-    //                     "races",
-    //                     "classes",
-    //                     "weapons",
-    //                     "search"]
-        
-       let getAPI = {
-            "async"         : true,
-            "crossDomain"   : true,
-            "url"           : criteria,
-            "method"        : "GET",
-            }
-            // console.log(getAPI.url)
-        $.ajax(getAPI).done(function (response) {
-               console.log(response)
-               everythingList = []
-               everythingList.push(response.results)
-               labBtnPrv.name = response.previous
-               labBtnNxt.name = response.next
-               console.log(everythingList)
-                // if (criteria === "spells") {spellList.push(response.results);console.log(spellList)}
-                // if (criteria === "monstersList") {monstersList.push(response.results);console.log(monstersList)}
-                // if (criteria === "documentList") {documentList.push(response.results);console.log(documentList)}
-                // if (criteria === "backgroundList") {backgroundList.push(response.results);console.log(backgroundList)}
-                // if (criteria === "planeList") {planeList.push(response.results);console.log(planeList)}
-                // if (criteria === "featList") {featList.push(response.results);console.log(featList)}
-                // if (criteria === "conditionList") {conditionList.push(response.results);console.log(conditionList)}
-                // if (criteria === "classList") {classList.push(response.results);console.log(classList)}
-                // if (criteria === "magicItemList") {magicItemList.push(response.results);console.log(magicItemList)}
-                // if (criteria === "weaponList") {weaponList.push(response.results);console.log(weaponList)}    
-            })
-    }
-
-
-
-
-
-
-
+    function getInfo(criteria) {
+            
+           let getAPI = {
+                "async"         : true,
+                "crossDomain"   : true,
+                "url"           : criteria,
+                "method"        : "GET",
+                }
+                // console.log(getAPI.url)
+            $.ajax(getAPI).done(function (response) {
+                   console.log(response)
+                   everythingList = []
+                   everythingList.push(response.results)
+                   labBtnPrv.name = response.previous
+                   labBtnNxt.name = response.next
+                   console.log(everythingList)
+                   whatPresenting()
+                })
+        }
 
 
 // Buttons:
 searchBtn.addEventListener('click', function () {
-        // if (getCriteriaBtn != "") {
             getInfo("spells")
-        //     let fetchedInfo = curInfo[0]
-        //     for (var i = 0; i <= fetchedInfo.length; i++) {
-        //     console.log(fetchedInfo[i])
-        //     }
-        // }
     })
 
-// Ajax Functionalities:
-// function getInfo(criteria) {
+labBtnPrv.addEventListener('click', function () {
+            if (nowPresenting != "") { whatPresenting() } 
+    })
 
-//     let getAPI = {
-//         "async"         : true,
-//         "crossDomain"   : true,
-//         "url"           : "https://api.open5e.com/"+ getCriteriaBtn + search.value,
-//         "method"        : "GET",
-//     }
-
-//     $.ajax(getAPI).done(function (response) {
-//             curInfo.push(response.results)
-//             console.log(curInfo)
-//             // console.log(curInfo)
-//         })
-//     }
-
+labBtnNxt.addEventListener('click', function () {
+            if (nowPresenting != "") { whatPresenting() }
+    })
 
 
 
 document.onLoad = function () {
-        
         } 
