@@ -6,6 +6,10 @@ let myLab = document.getElementById('myLab')
 let labBtnNxt = document.getElementById('labBtnNxt')
 let labBtnPrv = document.getElementById('labBtnPrv')
 let monsOptions = document.getElementById('monsOptions')
+let monsActions = document.getElementById('monsOptions')
+
+
+
 
 function status() {
     console.log(getCriteriaBtn)
@@ -123,6 +127,8 @@ function whatPresenting() {
 
                 }
 
+
+
             for (let i = 0; i < everythingList[0].length; i++) {
                 if (nowPresenting === "Abilities") {
                     console.log("creating Abilities")
@@ -131,18 +137,31 @@ function whatPresenting() {
                     getCriteriaBtn = document.createElement('input')
                     
                     getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
-                   
                     getCriteriaBtn.type = "button"
 
                         for (let z = 0; z < everythingList[0][i].actions.length; z++) {
-                           console.log(everythingList[0][i].actions[z].name)
+                           console.log(everythingList[0][i].actions.length)
                            getCriteriaBtn.value = everythingList[0][i].actions[z].name
-                            getCriteriaBtn.addEventListener('click', function(e){
+                           getCriteriaBtn.addEventListener('click', function(e){
                                 createSubElement = document.createElement('div')
                                 createSubElement.innerHTML = everythingList[0][i].actions[z].desc
+                                
+                                let createAction = document.createElement('h6')
+                                createAction.innerHTML = everythingList[0][i].actions[z].name
+                                createAction.classList.add("w-100","text-center")
+                                let whatever = document.createElement('div')
+                                whatever.style.width = "100px"
+                                whatever.style.height = "100px"
+                                whatever.style.background = "red"
+                                whatever.classList.add('whatever')
+                                console.log(whatever.classList)
+                                monsActions.appendChild(whatever)
+                                //console.log(createAction + " adlfjhsadkfjhd")
                                 e.target.insertAdjacentElement("afterend", createSubElement)
+
                             })
-                           
+                           let whatever = document.getElementsByClassName('whatever')
+                           monsActions.appendChild(whatever[0])
                         }
 
                     
