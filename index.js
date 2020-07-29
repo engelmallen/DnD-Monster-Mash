@@ -116,18 +116,23 @@ function displayMonsterData (monsterData) {
             monsterStats.insertAdjacentElement("beforeend", monsterChar)
 //Monster Actions
         let actions =[]
-        let actionDes=
-
+        let monsterActions =document.createElement('div')
+            monsterActions.innerHTML= "<h2>Actions:</h2>"
+            monsterEntry.insertAdjacentElement("beforeend", monsterActions)
+            monsterActions.setAttribute("class","monster-actions")
+        
+         
+        
+        
         console.log(Object.values(monsterList[j].actions))
-            for(let k=0; k<monsterList[j].actions.length; k++){
-                //if (Object.keys(monsterList[j].actions[k]) === "des"){
-                    actions.push(Object.values(monsterList[j].actions[k]))
-                    this ["actionDes" + k] = Object.values(monsterList[j].actions[k])
-                    console.log(this.ActionDes[k])
-               // }
-            
-                console.log("Pushed Array" + actions)
-                console.log(Object.keys(monsterList[j].actions[k]))
+            for(let k=0; k < monsterList[j].actions.length; k++){
+                let monsterAction = document.createElement('div')
+                    monsterAction.innerHTML = monsterList[j].actions[k].name + ": " + monsterList[j].actions[k].desc
+                    monsterAction.setAttribute("class","monster-action")
+                    monsterActions.insertAdjacentElement("beforeend",monsterAction)
+                    console.log(monsterList[j].actions[k].name)
+                    console.log(monsterList[j].actions[k].desc)
+                
             }
         
 
