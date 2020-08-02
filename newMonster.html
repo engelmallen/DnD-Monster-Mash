@@ -8,9 +8,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="pt-5">
+<body class="pt-5 bg-dark">
 
-<div id="navigation" class="container pt-2 pb-5 px-5 bg-warning">
+<div id="navigation" class="container d-none pt-2 pb-5 px-5 bg-warning">
 		<div id="creation" class="">
 		<div class="w-100 col-12 row"> 
 			<div class="h3 w-100 col-12 py-2 px-0 m-0">Select Criteria:</div>
@@ -28,7 +28,7 @@
 				<input class="searchBy col-2 btn-dark" type="button" name="search/?text=" value="Everything">
 				<div class="col-12 p-0 m-0 mt-3">
 					<div id="youAreSearching" class="h3">What are we looking for? </div>
-					<div class="col-12 row p-0 m-0">
+					<div class="col-12 p-0 m-0">
 					<input id="search" class="col-10" type="text" value="">
 						<input id="searchBtn" class="col-2 btn-success searchBy" type="button" name="" value="go">
 					</div>
@@ -38,56 +38,57 @@
 
 </div>
 
-<div id="charLab" class="container p-0 bg-light">
-	<div class="w-100 row m-0">
-		<div id="myMonster" class="col-6 border py-5 px-0">
+<div class="text-center jumbotron text-light bg-danger h1"> Welcome to Monster Mash!</div>
+
+<div id="charLab" class="container p-0 bg-light shadow-lg">
+	<div class="h1 text-center bg-warning  py-2">Monster Lab</div>
+	<div class="row m-0 ">
+		<div id="myMonster" class="col-6 py-3 px-1 px-0">
+			<div class="h3 col-12">My Monster:</div>
 			<div id="monsHeader" class="col-12 p-0">
 			<input id="monsName" class="col-12 m-0" type="text" placeholder="Monster Name" name="">	
-			<input id="monsSize" class="col-2 m-0" type="text" placeholder="Size" name="">
+			<input id="monsSize" class="col-12 m-0" type="text" placeholder="Size" name="">
 			<input id="monsType" class="col-5 m-0" type="text" placeholder="Type" name="">
 			<input id="monsAlgmnt" class="col-4 m-0" type="text" placeholder="Alignment" name="">
 			</div>
-			<div id="monsLife">
-				<input id="monsAC" class="col-5" type="text" placeholder="Armor Class">
-				<input id="monsHP" class="col-5" type="text" placeholder="Hit Points">
+			<div id="monsLife" class="col-12 px-0">
+				<input id="monsAC" class="col-12" type="text" placeholder="Armor Class">
+				<input id="monsHP" class="col-12" type="text" placeholder="Hit Points">
 				<input id="monsSpeed" class="col-12" type="text" placeholder="Speed">
 			</div>
-			<div id="monsStats">
-			<input id="monsDamRes" type="text" placeholder="Damage Resistantes">
-			<input id="monsDamImn" type="text" placeholder="Damage Inmunities">
-			<input id="monsConImn" type="text" placeholder="Condition Inmunities">
-			<input id="monsSenses" type="text" placeholder="Senses">
-			<input id="monsLangs" type="text" placeholder="Languages">
-			<input id="monsCR" type="text" placeholder="Challenge">					
+			<div id="monsStats" class="col-12 px-0">
+			<input id="monsDamRes" class="col-12" type="text" placeholder="Damage Resistances">
+			<input id="monsDamImn" class="col-12" type="text" placeholder="Damage Inmunities">
+			<input id="monsConImn" class="col-12" type="text" placeholder="Condition Inmunities">
+			<input id="monsSenses" class="col-12" type="text" placeholder="Senses">
+			<input id="monsLangs" class="col-12" type="text" placeholder="Languages">
+			<input id="monsCR" type="text" class="col-12" placeholder="Challenge">					
 			</div>
-			<div id="monsAtributes">
-			<input id="resSkills" type="button" value="Reset">
+			<div id="monsAtributes" class="col-12">
+			<input id="resSkills" class="col-12" type="button" value="Reset">
 
 			</div>
-			<div id="monsSkills"><h6>Abilities:</h6>
+			<div id="monsSkills" class=" row col-12 m-0"><h6 class="col-12">Abilities:</h6>
 				
-				<div class="h6">STR</div>
-				<input id="monsStr" type="text" placeholder="0">
-				
-				<div class="h6">STR</div>
-				<input id="monsStr" type="text" placeholder="0">
-				
-				<div class="h6">DEX</div>
-				<input id="monsDex" type="text" placeholder="0">
-				
-				<div class="h6">CON</div>
-				<input id="monsCon" type="text" placeholder="0">
-				
-				<div class="h6">INT</div>
-				<input id="monsInt" type="text" placeholder="0">
-				
-				<div class="h6">CHA</div>
-				<input id="monsCha" type="text" placeholder="0">
+				<h6 class=" col-2 text-center">STR</h6>
+				<h6 class=" col-2 text-center">DEX</h6>
+				<h6 class=" col-2 text-center">CON</h6>
+				<h6 class=" col-2 text-center">INT</h6>
+				<h6 class=" col-2 text-center">WIS</h6>
+				<h6 class=" col-2 text-center">CHA</h6>
+
+
+				<input id="monsStr" class="col-2 text-center" type="text" placeholder="0">
+				<input id="monsDex" class="col-2 text-center" type="text" placeholder="0">
+				<input id="monsCon" class="col-2 text-center" type="text" placeholder="0">
+				<input id="monsInt" class="col-2 text-center" type="text" placeholder="0">
+				<input id="monsWis" class="col-2 text-center" type="text" placeholder="0">
+				<input id="monsCha" class="col-2 text-center" type="text" placeholder="0">
 				
 
 			</div>
 
-			<div id="monsActions"><h6 id="monsActions">Actions:</h6>
+			<div id="monsActions" class="col-12"><h6 id="monsActions" class="col-12">Actions:</h6>
 				
 			</div>			
 
@@ -97,7 +98,9 @@
  -->
 		</div>
 
-		<div id="myLab" class="col-6 border py-5 px-0">
+		<div id="myLab" class="col-6 py-3 px-1 px-0">
+			<div class="h3 col-12">My Tools:</div>
+
 			<div id="myLabBtns" class="">
 				<div class="h6">Copy a monster:
 				<input class="searchBy col-12 btn-dark" type="button" name="https://api.open5e.com/monsters/?search=" value="Monster List"></div>

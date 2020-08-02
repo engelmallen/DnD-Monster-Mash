@@ -23,6 +23,12 @@ let monsLangs = document.getElementById('monsLangs')
 let monsCR = document.getElementById('monsCR')
 let resSkills = document.getElementById('resSkills') /*Reset Button*/
 
+let monsStr = document.getElementById('monsStr')
+let monsDex = document.getElementById('monsDex')
+let monsCon = document.getElementById('monsCon')
+let monsInt = document.getElementById('monsInt')
+let monsWis = document.getElementById('monsWis')
+let monsCha = document.getElementById('monsCha')
 
 // 
 
@@ -89,12 +95,16 @@ function whatPresenting() {
                     monsOptions.appendChild(getCriteriaCont)
                     
                     getCriteriaBtn.addEventListener('click', function () {
-                        monsName.value       =  everythingList[0][i].name
-                        monsSize.value       = everythingList[0][i].size
+                        monsName.value        =  everythingList[0][i].name
+                        monsSize.value        = everythingList[0][i].size
                         monsType.value        = everythingList[0][i].type
                         monsAlgmnt.value      = everythingList[0][i].alignment
-                        monsACmonsAC.value    = 'AC: '+everythingList[0][i].armor_class
-                        monsHP.value          = everythingList[0][i].hit_points
+                        monsACmonsAC.value    = 'Aarmor Class: '+everythingList[0][i].armor_class
+                        
+                        if (everythingList[0][i].armor_desc!= null) {
+                            monsACmonsAC.value += "("+everythingList[0][i].armor_desc + ")"}
+                        
+                        monsHP.value      = "Hit Points: "+ everythingList[0][i].hit_points + " or (" + everythingList[0][i].hit_dice +")"
                         
 
                         if (everythingList[0][i].speed.walk != 0) {
@@ -109,14 +119,20 @@ function whatPresenting() {
                                  }
                             }
                         }
-                        
-                        
+                                                
                         monsDamRes.values     = everythingList[0][i].damage_resistances
                         monsDamImn.value      = everythingList[0][i].damage_immunities
                         monsConImn.value      = everythingList[0][i].condition_immunities
                         monsSenses.value      = everythingList[0][i].senses
                         monsLangs.value       = everythingList[0][i].languages
                         monsCR.value          = everythingList[0][i].challenge_rating   
+
+                        monsStr.value = everythingList[0][i].strength
+                        monsDex.value = everythingList[0][i].dexterity
+                        monsCon.value = everythingList[0][i].constitution
+                        monsInt.value = everythingList[0][i].intelligence
+                        monsWis.value = everythingList[0][i].wisdom
+                        monsCha.value = everythingList[0][i].charisma
 
                         // for (let i = 0; i <= getCriteriaBtn.length; i++) { 
                             // for (let i = 0; i < everythingList[0][i].length; i++) {
@@ -166,7 +182,7 @@ function whatPresenting() {
 
             for (let i = 0; i < everythingList[0].length; i++) {/*Abilities*/
                 if (nowPresenting === "Actions") {
-                    console.log("creating Actions")
+                    // console.log("creating Actions")
                     // monsOptions.innerHTML = ""
                         let getCriteriaCont = document.createElement('div')
 
@@ -252,7 +268,7 @@ function whatPresenting() {
 
 
  
-                    console.log("btn created")
+                    // console.log("btn created")
 
                     }        
 
