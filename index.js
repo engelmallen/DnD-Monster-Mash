@@ -111,35 +111,40 @@ function displayMonsterData (monsterData) {
             monsterSenses.innerHTML= "Senses: "  + monsterList[j].senses
             monsterEntryDetails.insertAdjacentElement("beforeend", monsterSenses)
 //Monster Stats
-        let monsterStats =document.createElement('ul')
+        let monsterStats =document.createElement('div')
             monsterEntryDetails.insertAdjacentElement("beforeend", monsterStats)
             monsterStats.setAttribute("class", "monster-stats")
+        
+        let monsterStatsUL =document.createElement('ul')
+            monsterStats.insertAdjacentElement("beforeend", monsterStatsUL)
+            monsterStatsUL.setAttribute("class", "monster-statsUL")
+        
         let monsterStr =document.createElement('li')
             monsterStr.innerHTML= "STR: " + monsterList[j].strength
-            monsterStats.insertAdjacentElement("beforeend", monsterStr)
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterStr)
                                                
         let monsterDex =document.createElement('li')
             monsterDex.innerHTML= "DEX: " + monsterList[j].dexterity
-            monsterStats.insertAdjacentElement("beforeend", monsterDex)
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterDex)
         
         let monsterCon =document.createElement('li')
             monsterCon.innerHTML= "CON: " + monsterList[j].constitution
-            monsterStats.insertAdjacentElement("beforeend", monsterCon)
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterCon)
         
         let monsterInt =document.createElement('li')
             monsterInt.innerHTML= "INT: " + monsterList[j].intelligence
-            monsterStats.insertAdjacentElement("beforeend", monsterInt)
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterInt)
                                                
         let monsterWis =document.createElement('li')
             monsterWis.innerHTML= "WIS: " + monsterList[j].wisdom
-            monsterStats.insertAdjacentElement("beforeend", monsterWis)
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterWis)
         
         let monsterChar =document.createElement('li')
             monsterChar.innerHTML= "CHA: " + monsterList[j].charisma
-            monsterStats.insertAdjacentElement("beforeend", monsterChar)
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterChar)
 
         let monsterGraph=document.createElement('div')
-            monsterEntryDetails.appendChild(monsterGraph)
+            monsterStats.appendChild(monsterGraph)
             monsterGraph.setAttribute("class","monster-graph")
                                            
         let monsterEntryGraph=document.createElement('div')
