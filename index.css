@@ -9,14 +9,28 @@ body {
   font-size: 16px; }
 
 .container {
-  width: 50%;
+  width: 75%;
   margin: auto;
   display: block;
   margin-top: 1em;
-display: flex;
+    display: flex;
     flex-direction: column;
     align-content: center;
 
+}
+
+#monster-details{
+      display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+#monsters{
+
+}
+#monster-graph{
+width: auto;
 }
 
 .monster-name {
