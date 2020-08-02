@@ -7,6 +7,8 @@ let labBtnNxt = document.getElementById('labBtnNxt')
 let labBtnPrv = document.getElementById('labBtnPrv')
 let monsOptions = document.getElementById('monsOptions')
 let monsActions = document.getElementById('monsActions')
+
+
 var ereasure = document.getElementsByClassName('ereasure')
 
 
@@ -31,6 +33,8 @@ let getCriteriaBtn = ""
 let everythingList = []
 let nowPresenting = ""
 let test = ""
+let nextSearch = ""
+let lastSearch = ""
 
 
 let spellList = []
@@ -47,9 +51,9 @@ let weaponList = []
 
 function whatPresenting() {
 
-        monsOptions.innerHTML = ""    
+        monsOptions.innerHTML = ""  /*deletes Options List Area*/  
 
-            for (let i = 0; i < everythingList[0].length; i++) {
+            for (let i = 0; i < everythingList[0].length; i++) { /*Monsters*/
                 if (nowPresenting === "Monsters") {
                     console.log("creating btn")
                     // monsOptions.innerHTML = ""
@@ -125,7 +129,7 @@ function whatPresenting() {
 
 
 
-                }
+                }/*Race (for testing)*/
 
             for (let i = 0; i < everythingList[0].length; i++) {
                 if (nowPresenting === "Abilities") {
@@ -159,7 +163,7 @@ function whatPresenting() {
                                 createActionTil.innerHTML = everythingList[0][i].actions[z].name
                                 createDesc.innerHTML = everythingList[0][i].actions[z].desc
 
-                                actionClose.innerHTML = "X"
+                                actionClose.innerHTML = "Delete"
                                 actionClose.classList.add('w-100','mb-1')
                                 
                                
@@ -291,10 +295,12 @@ function getCriteria(){
     for (let i = 0; i < searchBy.length; i++) {
         searchBy[i].addEventListener('click', function (e) {
         getInfo(e.target.name)
-        nowPresenting = e.target.value
+        console.log(e.value + ": is e value")
+        if (e.value != "Next" || e.value != "Previous")
+        {nowPresenting = e.target.value}
         
-        console.log(nowPresenting)
-        console.log("getCriteria Working")
+        console.log(nowPresenting + ": is nowPresenting")
+        console.log("Function getCriteria is Working")
         // getCriteriaBtn =   
         })
     }/*whatPresenting()*/
@@ -314,10 +320,16 @@ function getCriteria(){
                    console.log(response)
                    everythingList = []
                    everythingList.push(response.results)
-                   labBtnPrv.name = response.previous
-                   labBtnNxt.name = response.next
+                   
+                   if (response.previous != null) {lastSearch = response.previous}
+                   if (response.next != null) {nextSearch = response.next}
+                   
                    console.log(everythingList)
                    whatPresenting()
+
+                   console.log(lastSearch)
+                   console.log(nextSearch)
+                   console.log(criteria +":is criteria")
                 })
         }
 
@@ -328,11 +340,12 @@ searchBtn.addEventListener('click', function () {
     })
 
 labBtnPrv.addEventListener('click', function () {
-            if (nowPresenting != "") { whatPresenting() } 
+            if (lastSearch != "") {getInfo(lastSearch) 
+        }
     })
 
 labBtnNxt.addEventListener('click', function () {
-            if (nowPresenting != "") { whatPresenting() }
+            if (nextSearch != "") {getInfo(nextSearch)}
     })
 
 
