@@ -7,7 +7,7 @@ let labBtnNxt = document.getElementById('labBtnNxt')
 let labBtnPrv = document.getElementById('labBtnPrv')
 let monsOptions = document.getElementById('monsOptions')
 let monsActions = document.getElementById('monsActions')
-
+var ereasure = document.getElementsByClassName('ereasure')
 
 
 
@@ -131,22 +131,24 @@ function whatPresenting() {
                 if (nowPresenting === "Abilities") {
                     console.log("creating Abilities")
                     // monsOptions.innerHTML = ""
-                    let getCriteriaCont = document.createElement('div')
-                    let getCriteriaBtn = document.createElement('input')
-                    
-                    getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
-                    getCriteriaBtn.type = "button"
-                        
+                        let getCriteriaCont = document.createElement('div')
+
                         for (let z = 0; z < everythingList[0][i].actions.length; z++) {
                            // console.log(everythingList[0][i].actions[z].name)
-                           
                            if (test != everythingList[0][i].actions[z].name) {
+                           
+                            
+                            let getCriteriaBtn = document.createElement('input')                            
+                            getCriteriaCont.appendChild(getCriteriaBtn)
+                            getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                            getCriteriaBtn.type = "button"                          
+
                            getCriteriaBtn.value = everythingList[0][i].actions[z].name
                            getCriteriaBtn.addEventListener('click', function(e){
                                 
 
-                                let createSubElement = document.createElement('div')
-                                createSubElement.innerHTML = everythingList[0][i].actions[z].desc
+                                // let createSubElement = document.createElement('div')
+                                // createSubElement.innerHTML = everythingList[0][i].actions[z].desc
                                 let createActionCon = document.createElement('div')
                                 let createActionTil = document.createElement('h6')
                                 let createDesc = document.createElement('div')
@@ -159,24 +161,27 @@ function whatPresenting() {
 
                                 actionClose.innerHTML = "X"
                                 actionClose.classList.add('w-100','mb-1')
-                                actionClose.addEventListener('click', function (e) {
-                                    e.parentNode.parentNode.removeChild(e.parentNode)
-                                })
+                                
+                               
 
 
                                 createActionCon.classList.add('createActionCon')
+                                actionClose.classList.add('ereasure')
                                 createActionTil.classList.add("w-100","text-center", "btn-warning")
-                                createDesc.classList.add("w-100", "p-2")
+                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50')
 
                                 
                                 monsActions.appendChild(createActionCon)
                                 createActionCon.appendChild(createActionTil)
                                 createActionCon.appendChild(actionClose)
                                 createActionTil.insertAdjacentElement("afterend", createDesc)
-                                e.target.insertAdjacentElement("afterend", createSubElement)
+                                // e.target.insertAdjacentElement("afterend", createSubElement)
                                
                                 
-
+                                actionClose.onclick = function(){
+                                    this.parentElement.innerHTML = ''
+                                    console.log('ereasure done')
+                                    }
 
                                 
 
@@ -190,7 +195,7 @@ function whatPresenting() {
 
                     
                     // console.log(everythingList[0][i].name)
-                    getCriteriaCont.appendChild(getCriteriaBtn)
+                    
                     monsOptions.appendChild(getCriteriaCont)
                     
                     var infoBtnAction = document.getElementsByClassName('infoBtnAction')
