@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     let monsterType =[
         "Aberration",
         "Beast",
@@ -20,6 +21,7 @@ $(document).ready(function() {
 let submit = document.getElementById("submit")
 
 submit.addEventListener ("click", monsterSearch)
+
 
 function monsterSearch (){
     let searchTerm=""
@@ -45,11 +47,13 @@ function monsterSearch (){
             success: function(monsterData) {
             console.log(monsterData)
             displayMonsterData(monsterData)
+
         }
     })
 }
 
 function displayMonsterData (monsterData) {
+       $(".monster-entry, .monster-name").remove();
 //build monsterList array from search value - capture full details of the monster in the array
          let monsterList=[]
 
@@ -83,27 +87,32 @@ function displayMonsterData (monsterData) {
         let monsterEntry=document.createElement('div')
             monsterContainer.appendChild(monsterEntry)
             monsterEntry.setAttribute("class","monster-entry")
+        
+        let monsterEntryDetails=document.createElement('div')
+            monsterEntry.appendChild(monsterEntryDetails)
+            monsterEntryDetails.setAttribute("class","monster-entry-details")
+
 
 //Monster Armor Class
         let monsterAC=document.createElement('div')
             monsterAC.innerHTML= "Armor Class: " + monsterList[j].armor_class
-            monsterEntry.insertAdjacentElement("beforeend", monsterAC)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterAC)
 //Monster Hit Points
         let monsterHP=document.createElement('div')
             monsterHP.innerHTML= "Hit Points: " + monsterList[j].hit_points
-            monsterEntry.insertAdjacentElement("beforeend", monsterHP)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterHP)
 // Monster Speed
          let monsterSpeed=document.createElement('div')
              monsterSpeed.innerHTML= "Speed:"
             Object.entries(monsterList[j].speed).forEach(([key, value]) => monsterSpeed.innerHTML += (` ${key}:${value}`));
-            monsterEntry.insertAdjacentElement("beforeend", monsterSpeed)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterSpeed)
 // Monster Senses
          let monsterSenses=document.createElement('div')
             monsterSenses.innerHTML= "Senses: "  + monsterList[j].senses
-            monsterEntry.insertAdjacentElement("beforeend", monsterSenses)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterSenses)
 //Monster Stats
         let monsterStats =document.createElement('ul')
-            monsterEntry.insertAdjacentElement("beforeend", monsterStats)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterStats)
             monsterStats.setAttribute("class", "monster-stats")
         let monsterStr =document.createElement('li')
             monsterStr.innerHTML= "STR: " + monsterList[j].strength
@@ -128,11 +137,20 @@ function displayMonsterData (monsterData) {
         let monsterChar =document.createElement('li')
             monsterChar.innerHTML= "CHA: " + monsterList[j].charisma
             monsterStats.insertAdjacentElement("beforeend", monsterChar)
+
+        let monsterGraph=document.createElement('div')
+            monsterEntryDetails.appendChild(monsterGraph)
+            monsterGraph.setAttribute("class","monster-graph")
+                                           
+        let monsterEntryGraph=document.createElement('div')
+            monsterGraph.appendChild(monsterEntryGraph)
+            monsterEntryGraph.setAttribute("id","monster-graph-" + monsterList[j].name)
+        
 //Monster Actions
         //let actions =[]
         let monsterActions =document.createElement('div')
             monsterActions.innerHTML= "<h2>Actions:</h2>"
-            monsterEntry.insertAdjacentElement("beforeend", monsterActions)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterActions)
             monsterActions.setAttribute("class","monster-actions")
         
 
@@ -146,7 +164,7 @@ function displayMonsterData (monsterData) {
 //Monster Special Ablities
         let monsterAblities =document.createElement('div')
             monsterAblities.innerHTML= "<h2>Special Ablities:</h2>"
-            monsterEntry.insertAdjacentElement("beforeend", monsterAblities)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterAblities)
             monsterAblities.setAttribute("class","monster-ablities")
 
             for(let l=0; l < monsterList[j].special_abilities.length; l++){
@@ -162,9 +180,10 @@ function displayMonsterData (monsterData) {
         let monsterSkills=document.createElement('div')
              monsterSkills.innerHTML= "Skills:"
             Object.entries(monsterList[j].skills).forEach(([key, value]) => monsterSkills.innerHTML += (` ${key}:${value}`));
-            monsterEntry.insertAdjacentElement("beforeend", monsterSkills)
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterSkills)
         
-        let stats_array =[]
+        //Use if you want an exposed blank chart
+        /*let stats_array =[0,0,0,0,0,0]
                 data = [{
                     type: 'scatterpolar',
                     r: stats_array,
@@ -176,13 +195,13 @@ function displayMonsterData (monsterData) {
                     polar: {
                         radialaxis: {
                             visible: true,
-                            range: [0, 50]
+                            range: [0, 30]
                         }
                     },
                     showlegend: false
                 }
                 
-                Plotly.newPlot("monster-graph", data, layout)
+                Plotly.newPlot("monster-graph-" + monsterList[j].name, data, layout)*/
         
 
     } //end for loop
@@ -197,15 +216,12 @@ function displayMonsterData (monsterData) {
     for (i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function(e) {
             this.classList.toggle("active");
-            
-            console.log(document.getElementsByClassName("monster-name active"))
-            console.log(e.target.innerText)
+            // Stats Graph
+                console.log(document.getElementsByClassName("monster-name active"))
+                console.log(e.target.innerText)
             let activeMonster =e.target.innerText;
             const found = monsterList.find(element => element.name == activeMonster);
-            console.log(found.stats_array);
-        
-            // Stats Graph
-        
+                console.log(found.stats_array);
                 data = [{
                     type: 'scatterpolar',
                     r: found.stats_array,
@@ -217,13 +233,15 @@ function displayMonsterData (monsterData) {
                     polar: {
                         radialaxis: {
                             visible: true,
-                            range: [0, 50]
+                            range: [0, 30]
                         }
                     },
+                     title: activeMonster,
                     showlegend: false
+                   
                 }
                 
-                Plotly.newPlot("monster-graph", data, layout)
+                Plotly.newPlot("monster-graph-" + found.name, data, layout)
         
         
  
@@ -235,12 +253,6 @@ function displayMonsterData (monsterData) {
                 panel.style.maxHeight = panel.scrollHeight + "px";
             } 
         });
-        
-//logic for Stats Graph
-    //    acc[i].addEventListener("click", function()
-        
-    //    });
-        
     }
 }
     
