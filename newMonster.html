@@ -41,10 +41,10 @@
 <div class="text-center jumbotron text-light bg-danger h1"> Welcome to Monster Mash!</div>
 
 <div id="charLab" class="container p-0 bg-light shadow-lg">
-	<div class="h1 text-center bg-warning  py-2">Monster Lab</div>
+	<div class="h1 text-center bg-warning py-2">Monster Lab</div>
 	<div class="row m-0 ">
 		<div id="myMonster" class="col-6 py-3 px-1 px-0">
-			<div class="h3 col-12">My Monster:</div>
+			<div class="h3 col-12 bg-dark text-light py-2">My Monster:</div>
 			<div id="monsHeader" class="col-12 p-0">
 			<input id="monsName" class="col-12 m-0" type="text" placeholder="Monster Name" name="">	
 			<input id="monsSize" class="col-12 m-0" type="text" placeholder="Size" name="">
@@ -65,10 +65,8 @@
 			<input id="monsCR" type="text" class="col-12" placeholder="Challenge">					
 			</div>
 			<div id="monsAtributes" class="col-12">
-			<input id="resSkills" class="col-12" type="button" value="Reset">
 
-			</div>
-			<div id="monsSkills" class=" row col-12 m-0"><h6 class="col-12">Abilities:</h6>
+				<div id="monsSkills" class=" row col-12 m-0">
 				
 				<h6 class=" col-2 text-center">STR</h6>
 				<h6 class=" col-2 text-center">DEX</h6>
@@ -88,6 +86,11 @@
 
 			</div>
 
+			<input id="resSkills" class="col-12 btn-danger" type="button" value="Reset">
+
+			</div>
+			<h6 class="col-12">Abilities:</h6>
+
 			<div id="monsActions" class="col-12"><h6 id="monsActions" class="col-12">Actions:</h6>
 				
 			</div>			
@@ -99,7 +102,7 @@
 		</div>
 
 		<div id="myLab" class="col-6 py-3 px-1 px-0">
-			<div class="h3 col-12">My Tools:</div>
+			<div class="h3 col-12 border py-2">My Tools:</div>
 
 			<div id="myLabBtns" class="">
 				<div class="h6">Copy a monster:

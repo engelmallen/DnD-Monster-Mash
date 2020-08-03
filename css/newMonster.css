@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 
-#myMonster input
+#myMonster input[type=text]
 {
 	border: none !important;
 	background: none
