@@ -91,26 +91,11 @@ function displayMonsterData (monsterData) {
         let monsterEntryDetails=document.createElement('div')
             monsterEntry.appendChild(monsterEntryDetails)
             monsterEntryDetails.setAttribute("class","monster-entry-details")
+        
+        let monsterStat =document.createElement('div')
+            monsterStat.innerHTML= "<h2>Stats:</h2>"
+            monsterEntryDetails.insertAdjacentElement("beforeend", monsterStat)
 
-
-//Monster Armor Class
-        let monsterAC=document.createElement('div')
-            monsterAC.innerHTML= "Armor Class: " + monsterList[j].armor_class
-            monsterEntryDetails.insertAdjacentElement("beforeend", monsterAC)
-//Monster Hit Points
-        let monsterHP=document.createElement('div')
-            monsterHP.innerHTML= "Hit Points: " + monsterList[j].hit_points
-            monsterEntryDetails.insertAdjacentElement("beforeend", monsterHP)
-// Monster Speed
-         let monsterSpeed=document.createElement('div')
-             monsterSpeed.innerHTML= "Speed:"
-            Object.entries(monsterList[j].speed).forEach(([key, value]) => monsterSpeed.innerHTML += (` ${key}:${value}`));
-            monsterEntryDetails.insertAdjacentElement("beforeend", monsterSpeed)
-// Monster Senses
-         let monsterSenses=document.createElement('div')
-            monsterSenses.innerHTML= "Senses: "  + monsterList[j].senses
-            monsterEntryDetails.insertAdjacentElement("beforeend", monsterSenses)
-//Monster Stats
         let monsterStats =document.createElement('div')
             monsterEntryDetails.insertAdjacentElement("beforeend", monsterStats)
             monsterStats.setAttribute("class", "monster-stats")
@@ -119,6 +104,36 @@ function displayMonsterData (monsterData) {
             monsterStats.insertAdjacentElement("beforeend", monsterStatsUL)
             monsterStatsUL.setAttribute("class", "monster-statsUL")
         
+        
+        
+        
+
+//Monster Armor Class
+        let monsterAC=document.createElement('li')
+            monsterAC.innerHTML= "<b>Armor Class:</b> " + monsterList[j].armor_class
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterAC)
+//Monster Hit Points
+        let monsterHP=document.createElement('li')
+            monsterHP.innerHTML= "Hit Points: " + monsterList[j].hit_points
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterHP)
+// Monster Speed
+         let monsterSpeed=document.createElement('li')
+             monsterSpeed.innerHTML= "Speed:"
+            Object.entries(monsterList[j].speed).forEach(([key, value]) => monsterSpeed.innerHTML += (` ${key}:${value}`));
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterSpeed)
+// Monster Senses
+         let monsterSenses=document.createElement('li')
+            monsterSenses.innerHTML= "Senses: "  + monsterList[j].senses
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterSenses)
+
+//Monster Skills
+        let monsterSkills=document.createElement('li')
+             monsterSkills.innerHTML= "Skills:"
+            Object.entries(monsterList[j].skills).forEach(([key, value]) => monsterSkills.innerHTML += (` ${key}:${value}`));
+            monsterStatsUL.insertAdjacentElement("beforeend", monsterSkills)
+        
+//Monster Stats
+
         let monsterStr =document.createElement('li')
             monsterStr.innerHTML= "STR: " + monsterList[j].strength
             monsterStatsUL.insertAdjacentElement("beforeend", monsterStr)
@@ -181,11 +196,7 @@ function displayMonsterData (monsterData) {
             }
         
         
-//Monster Skills
-        let monsterSkills=document.createElement('div')
-             monsterSkills.innerHTML= "Skills:"
-            Object.entries(monsterList[j].skills).forEach(([key, value]) => monsterSkills.innerHTML += (` ${key}:${value}`));
-            monsterEntryDetails.insertAdjacentElement("beforeend", monsterSkills)
+
         
         //Use if you want an exposed blank chart
         /*let stats_array =[0,0,0,0,0,0]
@@ -241,10 +252,20 @@ function displayMonsterData (monsterData) {
                             range: [0, 30]
                         }
                     },
-                     title: activeMonster,
+                     //title: activeMonster,
+                    height:350,
+                    width:400,
+                   margin: {
+                       l: 5,
+                       r: 5,
+                       b: 5,
+                       t: 5,
+                       pad: 0
+                   },
                     showlegend: false
                    
                 }
+                
                 
                 Plotly.newPlot("monster-graph-" + found.name, data, layout)
         

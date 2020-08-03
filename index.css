@@ -18,6 +18,9 @@ body {
     align-content: center;
 
 }
+ul{
+    list-style-type: none;
+}
 
 #monster-details{
       display: grid;
