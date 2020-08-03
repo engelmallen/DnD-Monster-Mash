@@ -8,6 +8,7 @@ let labBtnPrv = document.getElementById('labBtnPrv')
     // Identifiers: Work Area Fields
 let monsOptions = document.getElementById('monsOptions')
 let monsActions = document.getElementById('monsActions')
+let monsAbilities = document.getElementById('monsAbilities')
 let monsName = document.getElementById('monsName')
 let monsSize = document.getElementById('monsSize')
 let monsType = document.getElementById('monsType')
@@ -31,9 +32,6 @@ let monsWis = document.getElementById('monsWis')
 let monsCha = document.getElementById('monsCha')
 
 // 
-
-
-
 
 
 var ereasure = document.getElementsByClassName('ereasure')
@@ -95,7 +93,10 @@ function whatPresenting() {
                     monsOptions.appendChild(getCriteriaCont)
                     
                     getCriteriaBtn.addEventListener('click', function () {
-                        monsName.value        =  everythingList[0][i].name
+                        monsAbilities.innerHTML = ""
+
+
+                        monsName.value        = everythingList[0][i].name
                         monsSize.value        = everythingList[0][i].size
                         monsType.value        = everythingList[0][i].type
                         monsAlgmnt.value      = everythingList[0][i].alignment
@@ -120,12 +121,12 @@ function whatPresenting() {
                             }
                         }
                                                 
-                        monsDamRes.values     = everythingList[0][i].damage_resistances
-                        monsDamImn.value      = everythingList[0][i].damage_immunities
-                        monsConImn.value      = everythingList[0][i].condition_immunities
-                        monsSenses.value      = everythingList[0][i].senses
-                        monsLangs.value       = everythingList[0][i].languages
-                        monsCR.value          = everythingList[0][i].challenge_rating   
+                        monsDamRes.values     ="Damage Resistances: " + everythingList[0][i].damage_resistances
+                        monsDamImn.value      ="Damage Immunities: " + everythingList[0][i].damage_immunities
+                        monsConImn.value      ="Condition Immunities: " +  everythingList[0][i].condition_immunities
+                        monsSenses.value      ="Senses: " + everythingList[0][i].senses
+                        monsLangs.value       ="Languages: " + everythingList[0][i].languages
+                        monsCR.value          ="Challenge "+ everythingList[0][i].challenge_rating   
 
                         monsStr.value = everythingList[0][i].strength
                         monsDex.value = everythingList[0][i].dexterity
@@ -133,6 +134,57 @@ function whatPresenting() {
                         monsInt.value = everythingList[0][i].intelligence
                         monsWis.value = everythingList[0][i].wisdom
                         monsCha.value = everythingList[0][i].charisma
+
+                        for (let j = 0; j < everythingList[0][i].special_abilities.length; j++) {
+                            // let createSpAbName = document.createElement('div')
+                            // let createSpAbDesc = document.createElement('input')
+                            
+                            // createSpAbDesc.type = text
+                            
+                            // createSpAbName.innerHTML = everythingList[0][i].special_abilities[j].name
+                            // createSpAbDesc.value = everythingList[0][i].special_abilities[j].desc
+
+
+                                
+
+                                let createActionCon = document.createElement('div')
+                                let createActionTil = document.createElement('h6')
+                                let createDesc = document.createElement('div')
+                                let actionClose = document.createElement('button')
+
+                                
+                                createActionTil.innerHTML = everythingList[0][i].special_abilities[j].name
+                                createDesc.innerHTML = everythingList[0][i].special_abilities[j].desc
+
+                                actionClose.innerHTML = "Delete"
+                                actionClose.classList.add('w-100','mb-1')
+                                
+                               
+
+
+                                createActionCon.classList.add('createActionCon')
+                                actionClose.classList.add('ereasure')
+                                createActionTil.classList.add("w-100","text-center", "btn-warning")
+                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50')
+
+                                
+                                monsAbilities.appendChild(createActionCon)
+                                createActionCon.appendChild(createActionTil)
+                                createActionCon.appendChild(actionClose)
+                                createActionTil.insertAdjacentElement("afterend", createDesc)
+                                // e.target.insertAdjacentElement("afterend", createSubElement)
+                               
+                                
+                                actionClose.onclick = function(){
+                                    this.parentElement.innerHTML = ''                                    
+                                    }
+
+
+
+
+
+
+                        }
 
                         // for (let i = 0; i <= getCriteriaBtn.length; i++) { 
                             // for (let i = 0; i < everythingList[0][i].length; i++) {
@@ -277,7 +329,104 @@ function whatPresenting() {
 
                 }
 
+            for (let i = 0; i < everythingList[0].length; i++) {/*SpcAbilities*/
+                if (nowPresenting === "SpcAbilities") {
+                    // console.log("creating Actions")
+                    // monsOptions.innerHTML = ""
+                        let getCriteriaCont = document.createElement('div')
+
+                        for (let z = 0; z < everythingList[0][i].special_abilities.length; z++) {
+                           // console.log(everythingList[0][i].actions[z].name)
+                           // if (test != everythingList[0][i].actions[z].name) {
+                           
+                            
+                            let getCriteriaBtn = document.createElement('input')                            
+                            getCriteriaCont.appendChild(getCriteriaBtn)
+                            getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                            getCriteriaBtn.type = "button"                          
+
+                           getCriteriaBtn.value = everythingList[0][i].special_abilities[z].name
+                           getCriteriaBtn.addEventListener('click', function(e){
+                                
+
+                                // let createSubElement = document.createElement('div')
+                                // createSubElement.innerHTML = everythingList[0][i].actions[z].desc
+                                let createActionCon = document.createElement('div')
+                                let createActionTil = document.createElement('h6')
+                                let createDesc = document.createElement('div')
+                                let actionClose = document.createElement('button')
+
+                                
+                                createActionTil.innerHTML = everythingList[0][i].special_abilities[z].name
+                                createDesc.innerHTML = everythingList[0][i].special_abilities[z].desc
+
+                                actionClose.innerHTML = "Delete"
+                                actionClose.classList.add('w-100','mb-1')
+                                
+                               
+
+
+                                createActionCon.classList.add('createActionCon')
+                                actionClose.classList.add('ereasure')
+                                createActionTil.classList.add("w-100","text-center", "btn-warning")
+                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50')
+
+                                
+                                monsAbilities.appendChild(createActionCon)
+                                createActionCon.appendChild(createActionTil)
+                                createActionCon.appendChild(actionClose)
+                                createActionTil.insertAdjacentElement("afterend", createDesc)
+                                // e.target.insertAdjacentElement("afterend", createSubElement)
+                               
+                                
+                                actionClose.onclick = function(){
+                                    this.parentElement.innerHTML = ''                                    
+                                    }
+
+                                
+
+                                
+                                //test = everythingList[0][i].actions[z].name
+                            })
+
+                       // }
+                           
+                        }
+
+                    
+                    // console.log(everythingList[0][i].name)
+                    
+                    monsOptions.appendChild(getCriteriaCont)
+                    
+                    var infoBtnAction = document.getElementsByClassName('infoBtnAction')
+                    // for (let z = 0; z < infoBtnAction.length; z++) {
+                    //    infoBtnAction[z].addEventListener('click', function(e) {
+                    //     console.log("test done")
+
+                    //         for (let x = 0; x < everythingList[0].length; x++) {
+                    //                 let createInfoTitle =document.createElement('h6')
+                    //                 let createInfoElement =document.createElement('h4')
+                    //                 createInfoTitle.innerHTML = everythingList[0][x].keys
+                    //                 createInfoElement.innerHTML = everythingList[0][x].values
+                    //                 e.target.insertAdjacentElement("afterend", createInfoTitle)
+                    //                 e.target.insertAdjacentElement("afterend", createInfoElement)
+                    //         }
+
+                    //  })                        
+                    // }                    
+
+
  
+                    // console.log("btn created")
+
+                    }        
+
+
+
+
+                }
+
+        
 
 
             for (let i = 0; i < everythingList[0].length; i++) {
