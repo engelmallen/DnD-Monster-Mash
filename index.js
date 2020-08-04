@@ -70,7 +70,6 @@ function displayMonsterData (monsterData) {
                 monsterStats.push(currentMonster.intelligence)
                 monsterStats.push(currentMonster.wisdom)
                 monsterStats.push(currentMonster.charisma)
-             console.log(monsterStats)
              currentMonster.stats_array =monsterStats
          }
             console.log(monsterList)
@@ -104,9 +103,7 @@ function displayMonsterData (monsterData) {
             monsterStats.insertAdjacentElement("beforeend", monsterStatsUL)
             monsterStatsUL.setAttribute("class", "monster-statsUL")
         
-        
-        
-        
+
 
 //Monster Armor Class
         let monsterAC=document.createElement('li')
@@ -130,6 +127,10 @@ function displayMonsterData (monsterData) {
         let monsterSkills=document.createElement('li')
              monsterSkills.innerHTML= "Skills:"
             Object.entries(monsterList[j].skills).forEach(([key, value]) => monsterSkills.innerHTML += (` ${key}:${value}`));
+            if (Object.entries(monsterList[j].skills) ==''){
+                console.log("no skills")
+                monsterSkills.innerHTML += " N/A"
+                }
             monsterStatsUL.insertAdjacentElement("beforeend", monsterSkills)
         
 //Monster Stats
@@ -186,15 +187,19 @@ function displayMonsterData (monsterData) {
             monsterAblities.innerHTML= "<h2>Special Ablities:</h2>"
             monsterEntryDetails.insertAdjacentElement("beforeend", monsterAblities)
             monsterAblities.setAttribute("class","monster-ablities")
+        
+         let monsterAbility = document.createElement('div')
+            monsterAblities.insertAdjacentElement("beforeend",monsterAbility)
 
             for(let l=0; l < monsterList[j].special_abilities.length; l++){
-                let monsterAbility = document.createElement('div')
                     monsterAbility.innerHTML = monsterList[j].special_abilities[l].name + ": " + monsterList[j].special_abilities[l].desc
                     monsterAbility.setAttribute("class","monster-ablity")
-                    monsterAblities.insertAdjacentElement("beforeend",monsterAbility)
-                
             }
         
+        if (Object.entries(monsterList[j].special_abilities) == ''){
+            console.log("no Special Ablities")
+            monsterAbility.innerHTML ="N/A"
+            }
         
 
         
