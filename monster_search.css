@@ -1,7 +1,7 @@
 body, button{
     font-family: 'Lucida Console';
         border: solid;
-    border-width: thick;
+    border-width: thin;
 }
 
 body {
@@ -21,7 +21,9 @@ body {
 ul{
     list-style-type: none;
 }
+#searchButtons{
 
+}
 #monster-details{
       display: grid;
   grid-template-columns: 100%;
