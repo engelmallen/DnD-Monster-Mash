@@ -24,39 +24,79 @@ submit.addEventListener ("click", monsterSearch)
 
 
 function monsterSearch (){
+    
     let searchTerm=""
-        if(inputCR.value ==="" & inputType.value !==""){
-            console.log("No CR Value given but the following type was selected" + inputType.value)
-                searchTerm = "type=" + inputType.value
-            console.log(searchTerm)
-        }
-        else if(inputCR.value !="" & inputType.value == "blank"){ 
-            console.log(" No type was selected but the CR Value= " + inputCR.value)
-            searchTerm = "challenge_rating=" + inputCR.value
-            console.log(searchTerm)
-            }
-        else{ console.log("No Value was provided")
+    
+    if(inputCR.value ==="" & inputType.value !==""){
+        console.log("No CR Value given but the following type was selected" + inputType.value)
+            searchTerm = "type=" + inputType.value
+        console.log(searchTerm)
+    }
+    else if(inputCR.value !="" & inputType.value == "blank"){ 
+        console.log(" No type was selected but the CR Value= " + inputCR.value)
+        searchTerm = "challenge_rating=" + inputCR.value
+        console.log(searchTerm)
+    }
+    else{ console.log("No Value was provided")
+    }
+    
+   let searchURL = "https://api.open5e.com/monsters/?" + searchTerm
 
-            }
+    ajaxCall(searchURL)
+}
 
+function ajaxCall(searchURL){
     $.ajax({
 	       async: true,
 	       crossDomain: true,
-	       url: "https://api.open5e.com/monsters/?" + searchTerm,
+	       url: searchURL,
 	       method: "GET",
             success: function(monsterData) {
             console.log(monsterData)
             displayMonsterData(monsterData)
-
         }
     })
 }
 
+
 function displayMonsterData (monsterData) {
-       $(".monster-entry, .monster-name").remove();
+       $(".monster-entry, .monster-name, .page-button").remove();
 //build monsterList array from search value - capture full details of the monster in the array
          let monsterList=[]
 
+//Build Next and Prev buttons
+        let nextLink= monsterData.next
+        let prevLink= monsterData.previous
+        let searchButtons =document.getElementById('searchButtons')
+        
+        if(prevLink){
+           let prevButton = document.createElement('button')
+           prevButton.setAttribute("class", "page-button")
+            prevButton.innerHTML = "Previous"
+            searchButtons.appendChild(prevButton)
+            prevButton.addEventListener ("click", ()=>{
+                ajaxCall(prevLink)
+                
+            })
+        }
+
+        if(nextLink){
+           let nextButton = document.createElement('button')
+           nextButton.setAttribute("class", "page-button")
+            nextButton.innerHTML = "Next"
+            searchButtons.appendChild(nextButton)
+            nextButton.addEventListener ("click", ()=>{
+                ajaxCall(nextLink)
+                
+            })
+        }
+
+    
+
+      //  if (prevLink){
+       //     show previous button
+       // }
+    
          let monsterContainer=document.getElementById('monsters')
          for(let i=0; i<monsterData.results.length; i++){
              let currentMonster= monsterData.results[i]
