@@ -4,6 +4,19 @@
   -webkit-box-sizing: border-box;
 }
 
+body
+{
+	background-image: url("../img/monsterBookBg.jpg");
+}
+
+#charLab
+{
+	background: url("../img/monsterCardBg.png");
+	background-size: 100% 125%;
+}
+
+
+
 #myMonster input[type=text]
 {
 	border: none !important;

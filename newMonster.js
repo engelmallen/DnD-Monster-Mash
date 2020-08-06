@@ -91,7 +91,10 @@ labBtnNxt.addEventListener('click', function () {
             if (nextSearch != "") {getInfo(nextSearch)}
     })
 
-
+resSkills.addEventListener('click', function () {
+    monsAbilities.innerHTML = ""
+    monsActions.innerHTML = ""
+})
 
 
 function getCriteria(){
@@ -156,7 +159,7 @@ function whatPresenting() {
                     monsOptions.appendChild(getCriteriaCont)
                     
                     getCriteriaBtn.addEventListener('click', function () {
-                        monsAbilities.innerHTML = ""
+                        // monsAbilities.innerHTML = ""
 
 
                         monsName.value        = everythingList[0][i].name
@@ -240,6 +243,7 @@ function whatPresenting() {
                                 spAbClose.onclick = function(){
                                     this.parentElement.innerHTML = ''                                    
                                     }
+
                                 let createActionCon = document.createElement('div')
                                 let createActionTil = document.createElement('h6')
                                 let createDesc = document.createElement('textarea')
@@ -272,7 +276,7 @@ function whatPresenting() {
                                     this.parentElement.innerHTML = ''                                    
                                     }
 
-                        }
+                            }
 
 
 
