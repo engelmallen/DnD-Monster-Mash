@@ -4,7 +4,7 @@
 }
 
 * {
-   font-family: Baskervville;
+   font-family: Baskervville !important;
 }
 
 body, button{
@@ -15,8 +15,8 @@ body, button{
 
 
 body {
-  background-image: url("../img/monsterBookBg.jpg");
-
+  background: url("../img/monsterBookBg.jpg") no-repeat;
+  background-size: cover;
   font-size: 16px; }
 
 /*.container {
@@ -50,6 +50,11 @@ ul{
 {
   background: none;
   width: 30px;
+}
+
+#inputType
+{
+  background: none;
 }
 
 #monster-details{
@@ -120,17 +125,34 @@ ul{
   font-weight: bold;
 }
 
-.toSearch
-{
-  width: 50%;
-  height: 364px;
-  background: url("../img/imgMonsterCreator.jpg") no-repeat;
-  background-size: cover;
-}
-.toLab
+#toSearch
 {
   width: 50%;
   height: 364px;
   background: url("../img/imgMonsterSearch.jpg") no-repeat;
   background-size: cover;
+  background-position: center;
+  transition: 3s;
+}
+
+#toLab
+{
+  width: 50%;
+  height: 364px;
+  background: url("../img/imgMonsterCreator.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: 3s;
+}
+
+#toSearch:hover
+{
+  background-size: 150% !important;
+  transition: 3s;
+}
+
+#toLab:hover
+{
+  background-size: 150% !important;
+  transition: 3s;
 }
