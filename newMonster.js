@@ -92,8 +92,8 @@ labBtnNxt.addEventListener('click', function () {
     })
 
 resSkills.addEventListener('click', function () {
-    monsAbilities.innerHTML = ""
-    monsActions.innerHTML = ""
+    // monsAbilities.innerHTML = ""
+    // monsActions.innerHTML = ""
 })
 
 

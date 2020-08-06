@@ -35,7 +35,7 @@ ul{
     list-style-type: none;
 }
 
-.container
+.container-field
 {
   background: url("../img/monsterCardBg.png");
   padding-bottom: 500px !important; 
@@ -45,6 +45,13 @@ ul{
 #searchButtons{
 
 }
+
+#inputCR
+{
+  background: none;
+  width: 30px;
+}
+
 #monster-details{
       display: grid;
   grid-template-columns: 100%;
