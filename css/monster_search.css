@@ -112,3 +112,18 @@ ul{
   color: #dc3545;
   font-weight: bold;
 }
+
+.toSearch
+{
+  width: 50%;
+  height: 364px;
+  background: url("../img/imgMonsterCreator.jpg") no-repeat;
+  background-size: cover;
+}
+.toLab
+{
+  width: 50%;
+  height: 364px;
+  background: url("../img/imgMonsterSearch.jpg") no-repeat;
+  background-size: cover;
+}
