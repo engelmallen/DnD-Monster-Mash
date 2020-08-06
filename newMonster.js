@@ -105,12 +105,11 @@ function getCriteria(){
         console.log(e.value + ": is e value")
         if (e.value != "Next" || e.value != "Previous")
         {nowPresenting = e.target.value}
-        
         console.log(nowPresenting + ": is nowPresenting")
         console.log("Function getCriteria is Working")
         // getCriteriaBtn =   
         })
-    }/*whatPresenting()*/
+    }
 }getCriteria()
 
     function getInfo(criteria) {
@@ -133,6 +132,7 @@ function getCriteria(){
                    console.log(everythingList)
                    
                    whatPresenting()
+                   monsOptions.style.overflow = "scroll"
 
                    console.log(lastSearch)
                    console.log(nextSearch)
@@ -152,7 +152,7 @@ function whatPresenting() {
                     getCriteriaCont = document.createElement('div')
                     getCriteriaBtn = document.createElement('input')
                     
-                    getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                    getCriteriaBtn.classList.add("infoBtnAction","btn","border-bottom","border-top-0","font-bold","border-bottom-danger","w-100")
                     getCriteriaBtn.type = "button"
                     getCriteriaBtn.value = everythingList[0][i].name
                     getCriteriaCont.appendChild(getCriteriaBtn)
@@ -329,7 +329,7 @@ function whatPresenting() {
                             
                             let getCriteriaBtn = document.createElement('input')                            
                             getCriteriaCont.appendChild(getCriteriaBtn)
-                            getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                            getCriteriaBtn.classList.add("infoBtnAction","btn","border-bottom","border-top-0","font-bold","border-bottom-danger","w-100")
                             getCriteriaBtn.type = "button"                          
 
                            getCriteriaBtn.value = everythingList[0][i].actions[z].name
@@ -426,7 +426,7 @@ function whatPresenting() {
                             
                             let getCriteriaBtn = document.createElement('input')                            
                             getCriteriaCont.appendChild(getCriteriaBtn)
-                            getCriteriaBtn.classList.add("btn-success","w-100","infoBtnAction")
+                            getCriteriaBtn.classList.add("infoBtnAction","btn","border-bottom","border-top-0","font-bold","border-bottom-danger","w-100")
                             getCriteriaBtn.type = "button"                          
 
                            getCriteriaBtn.value = everythingList[0][i].special_abilities[z].name
