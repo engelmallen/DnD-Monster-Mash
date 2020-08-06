@@ -1,4 +1,11 @@
+@font-face {
+   font-family: Baskervville;
+   src: url("../res/Baskervville-Regular.otf");
+}
+
 * {
+  /*font-family: 'Lucida Console';*/
+   font-family: Baskervville;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

@@ -1,14 +1,25 @@
+@font-face {
+   font-family: Baskervville;
+   src: url("../res/Baskervville-Regular.otf");
+}
+
+* {
+   font-family: Baskervville;
+}
+
 body, button{
     font-family: 'Lucida Console';
-        border: solid;
+        /*border: solid;*/
     border-width: thin;
 }
 
+
 body {
+  background-image: url("../img/monsterBookBg.jpg");
 
   font-size: 16px; }
 
-.container {
+/*.container {
   width: 75%;
   margin: auto;
   display: block;
@@ -16,11 +27,21 @@ body {
     display: flex;
     flex-direction: column;
     align-content: center;
-}
+}*/
+
+
 
 ul{
     list-style-type: none;
 }
+
+.container
+{
+  background: url("../img/monsterCardBg.png");
+  padding-bottom: 500px !important; 
+  background-size: 100% 125%;
+}
+
 #searchButtons{
 
 }
@@ -45,6 +66,7 @@ ul{
 
 .monster-graph{
 
+  padding: 0 15%;
 }
 
 .monster-name {
@@ -79,8 +101,14 @@ ul{
 
 .monster-entry {
   padding: 0 18px;
-  background-color: white;
+  background-color: none;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+.monster-entry-details h2
+{
+  color: #dc3545;
+  font-weight: bold;
 }
