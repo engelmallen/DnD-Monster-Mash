@@ -163,12 +163,12 @@ function whatPresenting() {
                         monsSize.value        = everythingList[0][i].size
                         monsType.value        = everythingList[0][i].type
                         monsAlgmnt.value      = everythingList[0][i].alignment
-                        monsACmonsAC.value    = 'Aarmor Class: '+everythingList[0][i].armor_class
+                        monsACmonsAC.value    = everythingList[0][i].armor_class
                         
                         if (everythingList[0][i].armor_desc!= null) {
                             monsACmonsAC.value += "("+everythingList[0][i].armor_desc + ")"}
                         
-                        monsHP.value      = "Hit Points: "+ everythingList[0][i].hit_points + " or (" + everythingList[0][i].hit_dice +")"
+                        monsHP.value      =  everythingList[0][i].hit_points + " or (" + everythingList[0][i].hit_dice +")"
                         
 
                         if (everythingList[0][i].speed.walk != 0) {
@@ -184,12 +184,12 @@ function whatPresenting() {
                             }
                         }
                                                 
-                        monsDamRes.values     ="Damage Resistances: " + everythingList[0][i].damage_resistances
-                        monsDamImn.value      ="Damage Immunities: " + everythingList[0][i].damage_immunities
-                        monsConImn.value      ="Condition Immunities: " +  everythingList[0][i].condition_immunities
-                        monsSenses.value      ="Senses: " + everythingList[0][i].senses
-                        monsLangs.value       ="Languages: " + everythingList[0][i].languages
-                        monsCR.value          ="Challenge "+ everythingList[0][i].challenge_rating   
+                        monsDamRes.values     = everythingList[0][i].damage_resistances
+                        monsDamImn.value      = everythingList[0][i].damage_immunities
+                        monsConImn.value      = everythingList[0][i].condition_immunities
+                        monsSenses.value      = everythingList[0][i].senses
+                        monsLangs.value       = everythingList[0][i].languages
+                        monsCR.value          = everythingList[0][i].challenge_rating   
 
                         monsStr.value = everythingList[0][i].strength
                         monsDex.value = everythingList[0][i].dexterity
@@ -240,9 +240,9 @@ function whatPresenting() {
                                 spAbClose.onclick = function(){
                                     this.parentElement.innerHTML = ''                                    
                                     }
-                                                        let createActionCon = document.createElement('div')
+                                let createActionCon = document.createElement('div')
                                 let createActionTil = document.createElement('h6')
-                                let createDesc = document.createElement('div')
+                                let createDesc = document.createElement('textarea')
                                 let actionClose = document.createElement('button')
 
                                 
@@ -258,7 +258,7 @@ function whatPresenting() {
                                 createActionCon.classList.add('createActionCon')
                                 actionClose.classList.add('ereasure')
                                 createActionTil.classList.add("w-100","text-center", "btn-warning")
-                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50')
+                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50','createDesc')
 
                                 
                                 monsActions.appendChild(createActionCon)
@@ -336,7 +336,7 @@ function whatPresenting() {
                                 // createSubElement.innerHTML = everythingList[0][i].actions[z].desc
                                 let createActionCon = document.createElement('div')
                                 let createActionTil = document.createElement('h6')
-                                let createDesc = document.createElement('div')
+                                let createDesc = document.createElement('textarea')
                                 let actionClose = document.createElement('button')
 
                                 
@@ -352,7 +352,7 @@ function whatPresenting() {
                                 createActionCon.classList.add('createActionCon')
                                 actionClose.classList.add('ereasure')
                                 createActionTil.classList.add("w-100","text-center", "btn-warning")
-                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50')
+                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50','createDesc')
 
                                 
                                 monsActions.appendChild(createActionCon)
@@ -433,7 +433,7 @@ function whatPresenting() {
                                 // createSubElement.innerHTML = everythingList[0][i].actions[z].desc
                                 let createActionCon = document.createElement('div')
                                 let createActionTil = document.createElement('h6')
-                                let createDesc = document.createElement('div')
+                                let createDesc = document.createElement('textarea')
                                 let actionClose = document.createElement('button')
 
                                 
@@ -449,7 +449,7 @@ function whatPresenting() {
                                 createActionCon.classList.add('createActionCon')
                                 actionClose.classList.add('ereasure')
                                 createActionTil.classList.add("w-100","text-center", "btn-warning")
-                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50')
+                                createDesc.classList.add("w-100", "p-2",'overflow-auto','mh-50','createSpDesc')
 
                                 
                                 monsAbilities.appendChild(createActionCon)
