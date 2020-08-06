@@ -1,10 +1,35 @@
-*{
-	box-sizing: border-box;
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
+
+body
+{
+	background-image: url("../img/monsterBookBg.jpg");
+}
+
+#charLab
+{
+	background: url("../img/monsterCardBg.png");
+	background-size: 100% 125%;
+}
+
+
 
 #myMonster input[type=text]
 {
 	border: none !important;
 	background: none;
+}
+
+#myMonster div
+{
 	font-weight: bold;
+}
+
+#monsOptions
+{
+	max-height: 1000px;
+
 }

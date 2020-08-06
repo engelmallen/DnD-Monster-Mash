@@ -8,7 +8,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="pt-5 bg-dark">
+<body class="pt-5">
 
 <div id="navigation" class="container d-none pt-2 pb-5 px-5 bg-warning">
 		<div id="creation" class="">
@@ -40,29 +40,29 @@
 
 <div class="text-center jumbotron text-light bg-danger h1"> Welcome to Monster Mash!</div>
 
-<div id="charLab" class="container p-0 bg-light shadow-lg">
-	<div class="h1 text-center bg-warning py-2">Monster Lab</div>
-	<div class="row m-0 ">
-		<div id="myMonster" class="col-6 py-3 px-1 px-0">
-			<div class="h3 col-12 bg-dark text-light py-2">My Monster:</div>
-			<div id="monsHeader" class="col-12 p-0">
-			<input id="monsName" class="col-12 m-0" type="text" placeholder="Monster Name" name="">	
-			<input id="monsSize" class="col-12 m-0" type="text" placeholder="Size" name="">
-			<input id="monsType" class="col-5 m-0" type="text" placeholder="Type" name="">
-			<input id="monsAlgmnt" class="col-4 m-0" type="text" placeholder="Alignment" name="">
+<div id="charLab" class="container p-0 pb-5">
+	<div class="col-12 h1 text-left bg-warning py-2">Monster Lab</div>
+	<div class="row m-0 col-12">
+		<form id="myMonster" class="col-6 py-3 px-3">
+			<div class="h6 col-12 text-gray-dark text-left py-2 border-bottom border-warning">My Monster:</div>
+			<div id="monsHeader" class="row col-12 p-0">
+			<input id="monsName" class="text-danger h1 col-12 font-weight-bold m-0" type="text" placeholder="Monster Name" name="">	
+			<input id="monsSize" class="font-italic col-4 text-left m-0" type="text" placeholder="Size" name="">
+			<input id="monsType" class="font-italic col-4 m-0 text-left" type="text" placeholder="Type" name="">
+			<input id="monsAlgmnt" class="font-italic col-4 m-0 text-left" type="text" placeholder="Alignment" name="">
 			</div>
-			<div id="monsLife" class="col-12 px-0">
-				<input id="monsAC" class="col-12" type="text" placeholder="Armor Class">
-				<input id="monsHP" class="col-12" type="text" placeholder="Hit Points">
-				<input id="monsSpeed" class="col-12" type="text" placeholder="Speed">
+			<div id="monsLife" class="row col-12 px-0">
+				<div class="col-4">Armor Class</div> <input id="monsAC" class="col-8" type="text" placeholder="">
+				<div class="col-4">Hit Points</div> <input id="monsHP" class="col-8" type="text" placeholder="">
+				<div class="col-4">Speed</div> <input id="monsSpeed" class="col-8" type="text" placeholder="">
 			</div>
-			<div id="monsStats" class="col-12 px-0">
-			<input id="monsDamRes" class="col-12" type="text" placeholder="Damage Resistances">
-			<input id="monsDamImn" class="col-12" type="text" placeholder="Damage Inmunities">
-			<input id="monsConImn" class="col-12" type="text" placeholder="Condition Inmunities">
-			<input id="monsSenses" class="col-12" type="text" placeholder="Senses">
-			<input id="monsLangs" class="col-12" type="text" placeholder="Languages">
-			<input id="monsCR" type="text" class="col-12" placeholder="Challenge">					
+			<div id="monsStats" class=" row col-12 px-0">
+			<div class="col-5">Damage Resistances</div> <input id="monsDamRes" class="col-7" type="text" placeholder="">
+			<div class="col-5">Damage Inmunities</div> <input id="monsDamImn" class="col-7" type="text" placeholder="">
+			<div class="col-5">Condition Inmunities</div> <input id="monsConImn" class="col-7" type="text" placeholder="">
+			<div class="col-5">Senses</div> <input id="monsSenses" class="col-7" type="text" placeholder="">
+			<div class="col-5">Languages</div> <input id="monsLangs" class="col-7" type="text" placeholder="">
+			<div class="col-5">Challenge</div> <input id="monsCR" type="text" class="col-7" placeholder="">					
 			</div>
 			<div id="monsAtributes" class="col-12">
 
@@ -86,39 +86,44 @@
 
 			</div>
 
-			<input id="resSkills" class="col-12 btn-danger" type="button" value="Reset">
+			<input id="resSkills" class="col-12 btn-danger" type="Reset" value="Reset Monster">
 
 			</div>
-			<h6 class="col-12">Abilities:</h6>
-			<div id="monsAbilities" class="col-12"><h6 class="col-12">Special Abilities:</h6>
+			<!-- <h6 class="col-12 border border-bottom-0">Abilities:</h6> -->
+
+			<div id="monsAbilities" class="py-1 mt-2 mb-2 col-12">
+				<h6 class="h6 col-12 text-gray-dark text-left py-2 border-bottom border-warning">Special Abilities:</h6>
+				
+			</div>	
+
+
+			<div id="monsActions" class=" py-1 col-12">
+				<h6 class="h6 col-12 text-gray-dark text-left py-2 border-bottom border-warning">Actions:</h6>
 				
 			</div>			
 
 
-			
-			<div id="monsActions" class="col-12"><h6 class="col-12">Actions:</h6>
-				
-			</div>			
+
+
 
 <!-- 			<div id="monsLegActions"><h6>LegendaryActions:</h6>
 	
 </div>
  -->
-		</div>
+		</form>
 
 		<div id="myLab" class="col-6 py-3 px-1 px-0">
-			<div class="h3 col-12 border py-2">My Tools:</div>
+			<div class="h6 col-12 text-gray-dark text-left py-2 border-bottom border-warning">My Tools:</div>
 
-			<div id="myLabBtns" class="">
-				<div class="h6">Copy a monster:
+			<div id="myLabBtns" class="row col-12">
+				<div class="h6 col-4">Copy a monster:
 				<input class="searchBy col-12 btn-dark" type="button" name="https://api.open5e.com/monsters/?search=" value="Monster List"></div>
 				
-				<div class="h6">Add an Action:
-				<input class="searchBy col-12 btn-dark" type="button" name="https://api.open5e.com/monsters/?search=" value="Actions"></div>
-				
-				<div class="h6">Add an Ability:
+				<div class="h6 col-4">Add an Ability:
 				<input class="searchBy col-12 btn-dark" type="button" name="https://api.open5e.com/monsters/?search=" value="SpcAbilities"></div>
 
+				<div class="h6 col-4">Add an Action:
+				<input class="searchBy col-12 btn-dark" type="button" name="https://api.open5e.com/monsters/?search=" value="Actions"></div>
 
 				<input id="labBtnPrv" class="" name="" type="button" value="Previous">
 				<!-- <input id="" type="button" value="last"> -->
