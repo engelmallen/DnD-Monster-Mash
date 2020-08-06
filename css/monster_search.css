@@ -1,14 +1,25 @@
+@font-face {
+   font-family: Baskervville;
+   src: url("../res/Baskervville-Regular.otf");
+}
+
+* {
+   font-family: Baskervville !important;
+}
+
 body, button{
     font-family: 'Lucida Console';
-        border: solid;
+        /*border: solid;*/
     border-width: thin;
 }
 
-body {
 
+body {
+  background: url("../img/monsterBookBg.jpg") no-repeat;
+  background-size: cover;
   font-size: 16px; }
 
-.container {
+/*.container {
   width: 75%;
   margin: auto;
   display: block;
@@ -16,14 +27,36 @@ body {
     display: flex;
     flex-direction: column;
     align-content: center;
-}
+}*/
+
+
 
 ul{
     list-style-type: none;
 }
+
+.container-field
+{
+  background: url("../img/monsterCardBg.png");
+  padding-bottom: 500px !important; 
+  background-size: 100% 125%;
+}
+
 #searchButtons{
 
 }
+
+#inputCR
+{
+  background: none;
+  width: 30px;
+}
+
+#inputType
+{
+  background: none;
+}
+
 #monster-details{
       display: grid;
   grid-template-columns: 100%;
@@ -45,6 +78,7 @@ ul{
 
 .monster-graph{
 
+  padding: 0 15%;
 }
 
 .monster-name {
@@ -79,8 +113,46 @@ ul{
 
 .monster-entry {
   padding: 0 18px;
-  background-color: white;
+  background-color: none;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+.monster-entry-details h2
+{
+  color: #dc3545;
+  font-weight: bold;
+}
+
+#toSearch
+{
+  width: 50%;
+  height: 364px;
+  background: url("../img/imgMonsterSearch.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: 3s;
+}
+
+#toLab
+{
+  width: 50%;
+  height: 364px;
+  background: url("../img/imgMonsterCreator.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: 3s;
+}
+
+#toSearch:hover
+{
+  background-size: 150% !important;
+  transition: 3s;
+}
+
+#toLab:hover
+{
+  background-size: 150% !important;
+  transition: 3s;
 }

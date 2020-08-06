@@ -132,7 +132,7 @@ function getCriteria(){
                    console.log(everythingList)
                    
                    whatPresenting()
-                   monsOptions.style.overflow = "scroll"
+                   monsOptions.style.overflowY = "scroll"
 
                    console.log(lastSearch)
                    console.log(nextSearch)

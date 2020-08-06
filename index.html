@@ -3,8 +3,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+    <link rel="stylesheet" type="text/css" href="css/monster_search.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script><!--Ploty link-->
 </head>
 <body>
-	
+
+<div class="text-center py-5 my-5 jumbotron text-light bg-danger h1 shadow"> Welcome to Monster Mash!</div>
+
+
+<div class="container my-5 p-0">
+    <div class="py-5 row">
+        <div id="toSearch" onclick="location.reload();location.href='monster_search.html'" class="indexLink col-6 p-5 rounded bg-white btn">
+            <h6 class="bg-faded col-12 text-center h1 py-2 font-weight-bold badge-light shadow">Monsters Search</h6>
+        </div>
+        <div id="toLab" onclick="location.reload();location.href='newMonster.html'"  class="indexLink col-6 p-5  bg-dark btn">
+            <h6 class="bg-faded col-12 text-center h1 py-2 font-weight-bold badge-light shadow">Monsters Lab</h6>
+        </div>
+        
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="monster_search.js"></script>
 </body>
 </html>

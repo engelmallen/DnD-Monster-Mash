@@ -3,21 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
-    <link rel="stylesheet" type="text/css" href="monster_search.css">
+    <link rel="stylesheet" type="text/css" href="css/monster_search.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script><!--Ploty link-->
 </head>
 <body>
 
-<div class="container">
+<div class="text-center py-5 my-5 jumbotron text-light bg-danger h1 shadow"> Welcome to Monster Mash!</div>
+
+
+<div class="container-field container my-5 p-0">
+
+    <div class="container bg-dark text-right font-weight-bold py-1 text-light"> <a href="newMonster.html" class="text-light"> Create a New Monster</a> </div>
+
+    <div class="col-12 h1 text-left bg-warning py-2 font-weight-bold">Monster Search</div>
+         <div class="info text-center font-weight-bold">Search by Challenge Rating or Type.</div>
             <div id="input-content">
             <center>
                 <label for ="inputCR">Challenge Rating</label>
-                <input type="text" id='inputCR' name="" class="input">
+                <input type="text" id='inputCR' name="" class="input rounded">
                 <label for ="inputType">Type</label>
-                <select id ="inputType">
+                <select id ="inputType" class="rounded">
                     <option value = "blank"></option>
                     <option value ="aberration">Aberration</option>
                     <option value ="beast">Beast</option>
@@ -35,7 +46,7 @@
                     <option value= "undead">Undead</option>
                 </select>
                 <input type="submit" id='submit' name="">
-                <div class="info">Search by Challenge Rating or Type.</div>
+               
                 <div id="searchButtons">
                 </div>
             </center>
